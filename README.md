@@ -1,4 +1,6 @@
 # galaxy-ntp
+[![Build Status](https://travis-ci.org/andrew-j-price/galaxy-ntp.svg?branch=master)](https://travis-ci.org/andrew-j-price/galaxy-ntp)
+
 NTP Ansible Galaxy role tested via Molecule
 
 ### Commands
