@@ -1,0 +1,7 @@
+.cache
+.molecule
+.vagrant
+.venv
+*.DS_Store
+*.retry
+*.pyc

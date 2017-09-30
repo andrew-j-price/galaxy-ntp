@@ -1,0 +1,31 @@
+---
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Install NTP.
+  package:
+    name: ntp
+    state: present
+
+- name: Set Time Zone.
+  file:
+    src: "/usr/share/zoneinfo/{{ ntp_timezone }}"
+    dest: /etc/localtime
+    state: link
+    force: yes
+
+- name: Configure main NTP configuration file.
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart ntp
+
+- name: Ensure the NTP service is running and enabled at boot time.
+  service:
+    name: "{{ ntp_daemon }}"
+    enabled: yes
+    state: started
