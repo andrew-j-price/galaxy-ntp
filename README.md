@@ -17,5 +17,14 @@ ansible-galaxy init galaxy-ntp -f
 molecule init --driver docker --verifier testinfra
 ```
 
+### Debug Commands
+```
+molecule verify
+molecule login
+
+# Testinfra
+testinfra -v --connection=docker
+```
+
 ### Resources
   - http://giovannitorres.me/testing-ansible-roles-with-molecule-testinfra-and-vagrant.html
